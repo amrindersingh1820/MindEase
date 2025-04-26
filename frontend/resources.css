@@ -1,0 +1,72 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Main content styles */
+main {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section styles */
+section {
+    margin-bottom: 20px;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* List styles */
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* List item styles */
+li {
+    margin-bottom: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    main {
+        padding: 15px;
+    }
+}

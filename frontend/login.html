@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="auth.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Example</title>
+</head>
+<body>
+    <h1>Authentication Example</h1>
+    
+    <div id="auth-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-gmail" placeholder="Gmail" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="profile" style="display:none;">
+        <h2>Profile</h2>
+        <p id="profile-username"></p>
+        <button id="logout-button">Logout</button>
+    </div>
+    <div id="profile" style="display:none;">
+      <h2>Profile</h2>
+      <p id="profile-username"></p>
+      <button id="logout-button">Logout</button>
+  </div>
+
+    <script src="authController.js"></script>
+</body>
+</html>

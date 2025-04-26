@@ -1,0 +1,26 @@
+/* Styles for the authentication buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons .btn {
+    margin-left: 15px; /* Space between buttons */
+    padding: 10px 15px; /* Padding for the buttons */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.auth-buttons .btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.auth-buttons .btn:active {
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+}

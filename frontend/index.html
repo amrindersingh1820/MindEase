@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="game.html">
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Ease</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script> <!-- Include Socket.IO for real-time communication -->
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="navlogo">
+        <h1>Mental Health Support</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About Us</a>
+        <a href="#services">Support Services</a>
+        <a href="#resources">Helpful Resources</a>
+        <a href="#contact">Get in Touch</a>
+        <a href="#live-chat" id="liveChatLink">Live Chat</a> <!-- Link to Live Chat -->
+      </div>
+      <div class="auth-buttons">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn">Sign Up</a>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <div class="hero-section">
+    <div class="hero-msg">
+      <h2>Your Mental Health is Our Priority</h2>
+      <p>We are dedicated to providing support and resources for your mental well-being.</p>
+      <a href="#services" class="btn">Discover Support Services</a>
+    </div>
+  </div>
+
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>Our platform is committed to offering a safe and supportive environment for individuals seeking help with their mental health. We provide a variety of resources and services to assist you on your journey to wellness.</p>
+  </section>
+
+  <section id="services" class="services-section">
+    <h2>Our Support Services</h2>
+    <div class="service-box">
+      <h3>Online Counseling</h3>
+      <p>Connect with licensed counselors for virtual sessions tailored to your needs.</p>
+    </div>
+    <div class="service-box">
+      <h3>Peer Support Groups</h3>
+      <p>Join supportive communities where you can share experiences and find understanding.</p>
+    </div>
+    <div class="service-box">
+      <h3>Wellness Workshops</h3>
+      <p>Participate in workshops focused on coping strategies, mindfulness, and self-care.</p>
+    </div>
+  </section>
+
+  <section id="resources" class="resources-section">
+    <h2>Helpful Resources</h2>
+    <p>Access our extensive library of articles, videos, and guides designed to support your mental health journey.</p>
+    <a href="resource.html" class="btn">Explore Resources</a>
+  </section>
+
+  <section id="testimonials" class="testimonials-section">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial">
+      <p>"This platform has been a beacon of hope for me. The support is invaluable!"</p>
+      <h4>- Jordan M.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"The online counseling sessions have truly changed my life for the better."</p>
+      <h4>- Casey T.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"I love the community support. It feels great to connect with others who understand."</p>
+      <h4>- Morgan S.</h4>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Get in Touch</h2>
+    <form action="#" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <section id="live-chat" class="live-chat-section">
+    <h2>Live Chat Support</h2>
+    <div id="chat-box">
+      <div id="messages"></div>
+      <input type="text" id="chat-input" placeholder="Type your message here..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </section>
+
+  <section id="game" class="game-section">
+    <h2>Interactive Mental Health Game</h2>
+    <iframe src="game.html" width="100%" height="600px" frameborder="-1" title="Stress Relief Game">
+      Your browser does not support iframes. Please <a href="game.html">click here</a> to access the game.
+    </iframe>
+    <p>Engage in our interactive game designed to promote mental well-being and mindfulness.</p>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Mental Health Support Platform. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#about">About Us</a>
+        <a href="#services">Support Services</a>
+        <a href="#resources">Helpful Resources</a>
+        <a href="#contact">Get in Touch</a>
+        <a href="#live-chat">Live Chat</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Socket.IO
+    const socket = io('http://your-live-server-url'); // Replace with your live server URL
+
+    // Handle sending messages
+    document.getElementById('send-btn').onclick = function() {
+      const message = document.getElementById('chat-input').value;
+      socket.emit('chat message', message);
+      document.getElementById('chat-input').value = '';
+    };
+
+    // Handle receiving messages
+    socket.on('chat message', function(msg) {
+      const item = document.createElement('div');
+      item.textContent = msg;
+      document.getElementById('messages').appendChild(item);
+    });
+  </script>
+</body>
+</html>
